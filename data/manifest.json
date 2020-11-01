@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Zeitgeist",
+  "version": "1.2",
+  "description": "",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["<all_urls>", "storage", "history", "nativeMessaging"],
+  "applications": {
+    "gecko": {
+      "id": "zeitgeist@paysonwallach.com"
+    }
+  },
+  "icons": {
+    "48": "icon.svg",
+    "96": "icon.svg"
+  },
+  "options_ui": {
+    "page": "options.html"
+  }
+}
