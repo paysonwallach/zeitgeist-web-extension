@@ -58,7 +58,7 @@
     "@types/uuidv4": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
-    "autoprefixer": "^10.0.3",
+    "autoprefixer": "^10.0.4",
     "babel-loader": "^8.2.2",
     "chrome-webstore-upload-cli": "^1.2.0",
     "copy-webpack-plugin": "^6.3.2",
