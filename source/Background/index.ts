@@ -1,5 +1,5 @@
 import { browser, Runtime } from "webextension-polyfill-ts"
-import { v4 as uuidv4 } from "uuid"
+import { InsertEventsRequest } from "Common/Protocol"
 
 import { Lazy } from "Utils/Lazy"
 import { Config } from "Common/Config"
@@ -18,8 +18,7 @@ browser.runtime.onMessage.addListener((message, sender) => {
 
     getExcludeList().then(
         (excludeList) => {
-            const url = new URL(message.url)
-
+            const url = new URL(message.subjects[0].uri)
             if (
                 excludeList
                     .map(
@@ -28,13 +27,10 @@ browser.runtime.onMessage.addListener((message, sender) => {
                             domain.trim()
                     )
                     .reduce((result, item) => result || item)
-            ) {
-                hostConnector.instance.postMessage({
-                    apiVersion: 1,
-                    id: uuidv4(),
-                    data: message,
-                })
-            }
+            )
+                hostConnector.instance.postMessage(
+                    new InsertEventsRequest([message])
+                )
         },
         (error) => console.log(error)
     )

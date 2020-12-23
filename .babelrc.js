@@ -15,11 +15,27 @@ module.exports = {
         },
       },
     ],
-    "@babel/typescript",
+    ["@babel/typescript",
+      {
+        onlyRemoveTypeImports: true
+      }
+    ],
     "@babel/react",
   ],
   plugins: [
-    ["@babel/plugin-proposal-class-properties"],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        legacy: true
+      }
+    ],
+    ["@babel/plugin-proposal-class-properties",
+      {
+        loose: true
+      }
+    ],
+    "babel-plugin-parameter-decorator",
+    "babel-plugin-transform-typescript-metadata",
     [
       "@babel/plugin-transform-destructuring",
       {
