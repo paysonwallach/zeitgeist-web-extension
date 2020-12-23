@@ -50,15 +50,9 @@ module.exports = {
       "webextension-polyfill-ts": path.resolve(
         path.join(__dirname, "node_modules", "webextension-polyfill-ts")
       ),
-      Common: path.join(
-        sourcePath, "Common"
-      ),
-      Options: path.join(
-        sourcePath, "Options"
-      ),
-      Utils: path.join(
-        sourcePath, "Utils"
-      )
+      Common: path.join(sourcePath, "Common"),
+      Options: path.join(sourcePath, "Options"),
+      Utils: path.join(sourcePath, "Utils"),
     },
     extensions: [".ts", ".tsx", ".js", ".json"],
   },

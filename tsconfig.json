@@ -17,6 +17,7 @@
     "noFallthroughCasesInSwitch": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
     "baseUrl": "source"
   },
   "include": ["source", "types"]
