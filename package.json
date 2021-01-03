@@ -101,6 +101,23 @@
       "pre-commit": "npm run format"
     }
   },
+  "meta": {
+    "title": "Zeitgeist Web Extension",
+    "repository": {
+      "owner": "paysonwallach",
+      "name": "zeitgeist-web-extension"
+    },
+    "license": {
+      "name": "GNU General Public License v3.0",
+      "url": "https://github.com/paysonwallach/zeitgeist-web-extension/blob/master/LICENSE"
+    },
+    "codeOfConduct": {
+      "url": "https://github.com/paysonwallach/zeitgeist-web-extension/blob/master/CODE_OF_CONDUCT.md"
+    },
+    "releases": {
+      "url": "https://github.com/paysonwallach/zeitgeist-web-extension/releases"
+    }
+  },
   "standard-version": {
     "scripts": {
       "precommit": "npm run prerelease"
