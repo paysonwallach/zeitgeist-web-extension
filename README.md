@@ -13,7 +13,7 @@
   <br>
 </div>
 
-[Zeitgeist Web Extension](https://github.com/paysonwallach/zeitgeist-web-extension) is a browser extension for logging activity to [Zeitgeist](https://launchpad.net/zeitgeist-project).
+[Zeitgeist Web Extension](https://github.com/paysonwallach/zeitgeist-web-extension) is a browser extension that logs your activity to [Zeitgeist](https://launchpad.net/zeitgeist-project).
 
 ## Installation
 
