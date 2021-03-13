@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "zeitgeist-web-extension",
   "description": "Record your browser activities in Zeitgeist.",
   "license": "GPL-3.0",
