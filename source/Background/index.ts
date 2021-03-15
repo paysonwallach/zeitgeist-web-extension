@@ -1,8 +1,8 @@
 import { browser, Runtime } from "webextension-polyfill-ts"
-import { InsertEventsRequest } from "Common/Protocol"
 
 import { Lazy } from "Utils/Lazy"
 import { Config } from "Common/Config"
+import { InsertEventsRequest } from "Common/Protocol"
 import optionsStorage from "Common/Options"
 
 const getExcludeList = async (): Promise<string[]> => {
