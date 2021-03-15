@@ -36,7 +36,7 @@ browser.runtime.onMessage.addListener((message, sender) => {
     )
 })
 
-browser.history.onVisited.addListener((result) => {
+browser.history.onVisited.addListener(() => {
     browser.tabs.executeScript({
         file: "contentScript.js",
     })
