@@ -59,7 +59,7 @@ module.exports = {
   module: {
     rules: [
       {
-        type: "javascript/auto", // prevent webpack handling json with its own loaders,
+        type: "javascript/auto", // prevent Webpack from handling json with its own loaders
         test: /manifest\.json$/,
         use: {
           loader: "wext-manifest-loader",
@@ -75,16 +75,16 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader, // It creates a CSS file per JS file which contains CSS
+            loader: MiniCssExtractPlugin.loader, // create a CSS file per JS file which contains CSS
           },
           {
-            loader: "css-loader", // Takes the CSS files and returns the CSS with imports and url(...) for Webpack
+            loader: "css-loader", // take the CSS files and return the CSS with imports and url(...) for Webpack
             options: {
               sourceMap: true,
             },
           },
           {
-            loader: "postcss-loader", // For autoprefixer
+            loader: "postcss-loader", // for autoprefixer
             options: {
               postcssOptions: {
                 ident: "postcss",
@@ -93,8 +93,8 @@ module.exports = {
               },
             },
           },
-          "resolve-url-loader", // Rewrites relative paths in url() statements
-          "sass-loader", // Takes the Sass/SCSS file and compiles to the CSS
+          "resolve-url-loader", // rewrite relative paths in url() statements
+          "sass-loader", // compile Sass/SCSS files to CSS
         ],
       },
     ],
