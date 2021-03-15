@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/paysonwallach/zeitgeist-web-extension/issues"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "scripts": {
     "build": "run-p build:chrome build:firefox build:opera",
     "build:chrome": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=chrome webpack",
@@ -25,10 +25,11 @@
     "format:js": "eslint --fix .",
     "format:package.json": "prettier-package-json --write",
     "prerelease": "scrivano",
-    "release": "run-s build-meta build standard-version release:*",
+    "release": "run-s build version",
     "release:amo": "web-ext-submit --source-dir distribution/firefox",
     "release:cws": "webstore upload --source=distribution/chrome --auto-publish",
     "test": "run-s format build",
+    "version": "standard-version",
     "watch": "webpack --mode=development --watch"
   },
   "dependencies": {
