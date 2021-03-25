@@ -45,7 +45,7 @@
     "url-polyfill": "^1.1.12",
     "url-search-params": "^1.1.0",
     "url-search-params-polyfill": "^8.1.0",
-    "uuidv4": "^6.2.6",
+    "uuidv4": "^6.2.7",
     "webext-options-sync": "^2.0.1",
     "webextension-polyfill-ts": "^0.25.0"
   },
