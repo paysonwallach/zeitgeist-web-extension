@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "zeitgeist-web-extension",
+  "version": "0.2.1",
   "description": "Record your browser activities in Zeitgeist.",
   "license": "GPL-3.0",
   "author": "Payson Wallach <payson@paysonwallach.com>",
@@ -12,7 +13,6 @@
   "bugs": {
     "url": "https://github.com/paysonwallach/zeitgeist-web-extension/issues"
   },
-  "version": "0.2.1",
   "scripts": {
     "build": "run-p build:chrome build:firefox build:opera",
     "build:chrome": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=chrome webpack",
@@ -24,6 +24,7 @@
     "format": "run-p format:*",
     "format:js": "eslint --fix .",
     "format:package.json": "prettier-package-json --write",
+    "prepare": "husky install",
     "prerelease": "scrivano",
     "release": "run-s build version",
     "release:amo": "web-ext-submit --source-dir distribution/firefox",
