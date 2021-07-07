@@ -1,7 +1,7 @@
 import { browser, History } from "webextension-polyfill-ts"
 import React from "react"
 import ReactDOM from "react-dom"
-import ProgressBar from "progressbar.js"
+import ProgressBar from "react-progressbar.js"
 
 import { Config } from "Common/Config"
 import { OptionsForm } from "Options/OptionsForm"
