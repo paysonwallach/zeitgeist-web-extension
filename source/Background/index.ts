@@ -32,46 +32,44 @@ const getOrigin = (uri: string): string => {
         return "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject"
 }
 
-browser.history.onTitleChanged.addListener((changed) => {
-    getExcludeList().then(
-        (excludeList) => {
-            const url = new URL(changed.url)
-            if (
-                excludeList
-                    .map(
-                        (domain) =>
-                            url.hostname.split(".").slice(-2).join(".") !==
-                            domain.trim()
-                    )
-                    .reduce((result, item) => result || item)
-            ) {
-                const normalizedUrl = normalizeUrl(changed.url)
-                const subject = new Subject(
-                    undefined,
-                    undefined,
-                    "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Website",
-                    getManifestation(normalizedUrl),
-                    undefined,
-                    getOrigin(normalizedUrl),
-                    "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#WebDataObject",
-                    changed.title,
-                    normalizedUrl
+browser.history.onTitleChanged.addListener(async (changed) => {
+    try {
+        const excludeList = await getExcludeList()
+        const url = new URL(changed.url)
+        if (
+            excludeList
+                .map(
+                    (domain) =>
+                        url.hostname.split(".").slice(-2).join(".") !==
+                        domain.trim()
                 )
-                const event = new Event(
-                    [subject],
-                    Date.now(),
-                    0,
-                    "application://firefox.desktop",
-                    "http://www.zeitgeist-project.com/ontologies/2010/01/27/zg#AccessEvent",
-                    "http://www.zeitgeist-project.com/ontologies/2010/01/27/zg#UserActivity",
-                    undefined,
-                    undefined
-                )
-                hostConnector.instance.postMessage(
-                    new InsertEventsRequest([event])
-                )
-            }
-        },
-        (error) => console.log(error)
-    )
+                .reduce((result, item) => result || item)
+        ) {
+            const normalizedUrl = normalizeUrl(changed.url)
+            const subject = new Subject(
+                undefined,
+                undefined,
+                "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Website",
+                getManifestation(normalizedUrl),
+                undefined,
+                getOrigin(normalizedUrl),
+                "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#WebDataObject",
+                changed.title,
+                normalizedUrl
+            )
+            const event = new Event(
+                [subject],
+                Date.now(),
+                0,
+                "application://firefox.desktop",
+                "http://www.zeitgeist-project.com/ontologies/2010/01/27/zg#AccessEvent",
+                "http://www.zeitgeist-project.com/ontologies/2010/01/27/zg#UserActivity",
+                undefined,
+                undefined
+            )
+            hostConnector.instance.postMessage(new InsertEventsRequest([event]))
+        }
+    } catch (error) {
+        console.log(error)
+    }
 })
